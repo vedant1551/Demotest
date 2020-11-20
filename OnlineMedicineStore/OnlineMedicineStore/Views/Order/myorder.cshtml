@@ -1,0 +1,100 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "My Orderes";
+}
+
+@{
+    int no = 1;
+    int i = 0;
+
+    int j = 0;
+
+    int k = 0;
+    }
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                No:
+            </th>
+
+            <th>
+                Ordered Medicines
+            </th>
+            <th></th>
+
+            <th>
+                Quantity
+
+            </th>
+            <th>
+                Sub-Total
+
+            </th>
+            <th>  </th>
+            <th>
+                Total-Price
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in ViewBag.medname)
+        {
+        <tr>
+            <th>
+                @no
+                @{no = no + 1;
+                }
+            </th>
+
+            <th>
+                @{j = 0;}
+                @foreach (string var1 in item)
+                {
+                    <p> @var1 </p>
+                  
+                     j = j+ 1;
+                        
+                }
+            </th>
+            <th></th>
+            <th>
+                @for (k=0;k<j;k++)
+                {
+                       <p> @ViewBag.quantity[i][k]</p>
+                }
+            </th>
+            <th>
+
+                @for (k = 0; k < j; k++)
+                {
+
+                    <p>@ViewBag.cost[i][k]</p>
+
+                }
+            </th>
+            <th></th>
+            <th>
+
+
+
+                @ViewBag.total[i]
+
+
+
+
+
+                @{i = i + 1;
+                    }
+
+            </th>
+        </tr>
+          }
+
+
+    </tbody>
+</table>

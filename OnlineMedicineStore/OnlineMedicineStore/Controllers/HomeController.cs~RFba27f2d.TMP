@@ -1,0 +1,64 @@
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using OnlineMedicineStore.Service;
+using OnlineMedicineStore.Models;
+
+namespace OnlineMedicineStore.Controllers
+{
+   
+    public class HomeController: Controller
+    {
+        private readonly IUserService _userService;
+        private readonly IEmailService _emailService;
+
+        public HomeController(IUserService userService,
+            IEmailService emailService)
+        {
+            _userService = userService;
+            _emailService = emailService;
+        }
+        public ViewResult Index()
+        {
+
+            /*UserEmailOptions options = new UserEmailOptions
+            {
+                ToEmails = new List<string>() {"test@gmail.com"},
+                PlaceHolders = new List<KeyValuePair<string,string>>()
+                {
+                    new KeyValuePair<string, string>("{{UserName}}","Utsav & Vedant")
+                }
+            };
+
+            await _emailService.SendTestEmail(options);*/
+            var userId = _userService.GetUserId();
+            var isLoggedIn = _userService.IsAuthenticated();
+
+            return View();
+        }
+
+        [Authorize]
+        public ViewResult AboutUs()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public ViewResult ContactUs()
+        {
+            return View();
+        }
+
+        [Authorize]
+        [HttpGet]
+        public ViewResult UpdateProfile()
+        {
+            var userId = _userService.GetUserId();
+            var isLoggedIn = _userService.IsAuthenticated();
+            return View();
+        }
+    }
+}

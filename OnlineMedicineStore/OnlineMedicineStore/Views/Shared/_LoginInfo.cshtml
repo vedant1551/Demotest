@@ -1,0 +1,87 @@
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
+
+@if (_signInManager.IsSignedIn(User))
+{
+
+    <ul class="navbar-nav flex-grow-1 justify-content-end">
+
+        <li class="nav-item  nav-link px-4">
+            <a class="nav-link active" asp-controller="Home" asp-action="Index">Home</a>
+        </li>
+
+        <li class="nav-item nav-link px-4">
+            <a class="nav-link" asp-controller="Home" asp-action="aboutus">About Us</a>
+        </li>
+
+        <li class="nav-item nav-link px-4">
+            <a class="nav-link" asp-controller="Home" asp-action="contactus">Contact Us</a>
+        </li>
+
+        <li class="nav-item nav-link px-4">
+            <a class="nav-link" asp-controller="Order" asp-action="myorder">My Orderes</a>
+        </li>
+        <li class="nav-item nav-link px-4">
+            <a class="nav-link" asp-controller="Home" asp-action="viewuser_medicine">View Medicines</a>
+        </li>
+
+            @*<li class="nav-link" style="color:white;" href="#" role="button">
+                Hello @User.Identity.Name
+            </li>*@
+
+        <li class="nav-item dropdown  nav-link px-4">
+            <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Hello @User.Identity.Name
+            </a>
+            <div class="dropdown-menu" aria-labelledbyId="navbarDropdownMenuLink">
+
+                <a class="dropdown-item" asp-controller="Account" asp-action="ChangePasword">Change Password</a>
+                <a class="dropdown-item" asp-action="UpdateUser" asp-controller="Home">Update Profile</a>
+                <a class="dropdown-item" asp-action="ForgotPassword" asp-controller="Account">Forgot Password</a>
+
+            </div>
+        </li>
+
+        <li class="nav-item  nav-link px-4">
+            <a class="nav-link" asp-controller="account" asp-action="logout">Logout</a>
+        </li>
+
+        @*<li class="nav-item  nav-link px-5">
+            <a class="nav-link" asp-controller="account" asp-action="ChangePassword">Change Password</a>
+        </li>*@
+
+
+
+
+    </ul>
+
+
+
+}
+
+else
+{
+
+    <ul class="navbar-nav flex-grow-1 justify-content-end" style="color:white;">
+
+        <li class="nav-item  nav-link px-5">
+            <a class="nav-link active" href="#">Home</a>
+        </li>
+
+        <li class="nav-item dropdown  nav-link px-5">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Login
+            </a>
+            <div class="dropdown-menu" aria-labelledbyId="navbarDropdownMenuLink">
+
+                <a class="dropdown-item" asp-action="adminlogin" asp-controller="admin">Admin Login</a>
+                <a class="dropdown-item" asp-action="login" asp-controller="account" asp-route-returnUrl="@Context.Request.Path">User Login</a>
+
+            </div>
+        </li>
+        <li class="nav-item  nav-link px-5">
+            <a class="nav-link" asp-controller="account" asp-action="signup">SignUp</a>
+        </li>
+    </ul>
+
+}
+

@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"] | Online Medicine Store</title>
+
+    <environment include="Development">
+        @*<link rel="stylesheet" href="~/css/Header.css" />*@
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <script src="https://use.fontawesome.com/7b1cae8ae3.js"></script>
+    </environment>
+
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <script src="https://use.fontawesome.com/7b1cae8ae3.js"></script>
+    </environment>
+
+    <style>
+        .nav-link {
+            color: green;
+        }
+
+        .nav-item > a:hover {
+            color: green;
+        }
+
+        .navbar-nav > .active > a {
+            background-color: white;
+            color: green;
+        }
+
+        footer {
+            float: left;
+            width: 100%;
+            background-color: grey;
+            padding: 10px 0px;
+            position: relative;
+            bottom: 0;
+        }
+
+            footer .footer-content {
+                float: left;
+                width: 100%;
+            }
+
+                footer .footer-content .box .icon span {
+                    color: white;
+                }
+
+            footer .social-links {
+                float: left;
+                width: 100%;
+                text-align: center;
+                border-top: 1px solid white;
+                padding-top: 0px;
+            }
+
+                footer .social-links ul {
+                    padding: 0;
+                    @*list-style: none;
+                    *@ margin: 0;
+                }
+
+                    footer .social-links ul li {
+                        display: inline;
+                    }
+
+                        footer .social-links ul li a {
+                            display: inline-block;
+                            padding: 10px 10px;
+                        }
+
+                            footer .social-links ul li a span {
+                                display: inline-block;
+                                height: 40px;
+                                width: 40px;
+                                border-radius: 50%;
+                                border: 1px solid white;
+                                color: white;
+                                line-height: 38px;
+                                text-align: center;
+                                font-size: 16px;
+                                transition: all .5s ease;
+                            }
+
+                                footer .social-links ul li a span:hover {
+                                    background-color: white;
+                                    color: black;
+                                }
+
+            footer .footer-content .box {
+                width: 33.33%;
+                float: left;
+                padding: 15px;
+                text-align: center;
+            }
+
+                footer .footer-content .box .icon span {
+                    color: white;
+                    font-size: 30px;
+                }
+
+                footer .footer-content .box h4 {
+                    font-size: 16px;
+                    color: white;
+                    margin: 0;
+                    font-weight: 600;
+                    /* text-transform: uppercase; */
+                    padding: 20px 0 0px;
+                }
+
+                footer .footer-content .box p {
+                    color: white;
+                    font-size: 16px;
+                    line-height: 25px;
+                    letter-spacing: .5px;
+                    font-weight: 400;
+                    padding: 10px 0;
+                    margin: 0px;
+                }
+    </style>
+
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">Online Medicine Store</a>
+
+            <!-- Links -->
+
+            <button type="button" id="navbar-toggler-button" class="navbar-toggler" data-toggle="collapse" data-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+
+                <ul class="navbar-nav flex-grow-1 justify-content-end">
+
+                    <li class="nav-item  nav-link px-5">
+                        <a class="nav-link" asp-controller="Admin" asp-action="Index">Home</a>
+                    </li>
+
+                    <li class="nav-item nav-link px-5">
+                        <a class="nav-link" asp-controller="Admin" asp-action="Medicineregister">Add medicine</a>
+                    </li>
+
+                    <li class="nav-item nav-link px-5">
+                        <a class="nav-link" asp-controller="Admin" asp-action="ViewMedicine">View medicine</a>
+                    </li>
+
+                    <li class="nav-item nav-link px-5">
+                        <a class="nav-link" asp-controller="ViewOrder" asp-action="index">View Orderes</a>
+                    </li>
+                    <li class="nav-item nav-link px-5">
+                        <a class="nav-link" asp-controller="Admin" asp-action="ViewUsers">View All Users</a>
+                    </li>
+
+                    <li class="nav-item  nav-link px-5">
+                        <a class="nav-link" asp-controller="Admin" asp-action="logout">Logout</a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <br />
+    <br />
+
+    <footer class="bg-dark">
+        <div class="container bg-dark">
+            <div class="footer-content ">
+                <div class="box">
+                    <div class="icon">
+                        <span class="fa fa-phone "></span>
+                    </div>
+                    <h4>Phone</h4>
+                    <p>+91 77777 77777</p>
+                </div>
+                <div class="box ">
+                    <div class="icon ">
+                        <span class="fa fa-envelope "></span>
+                    </div>
+                    <h4>E-mail</h4>
+                    <p>onlinemedicinestore@gmail.com</p>
+                </div>
+                <div class="box ">
+                    <div class="icon ">
+                        <span class="fa fa-map-marker "></span>
+                    </div>
+                    <h4>Location</h4>
+                    <p>Nadiad 387001</p>
+                </div>
+            </div>
+            <div class="social-links ">
+                <ul>
+                    <li><a href=" "><span class="fa fa-facebook "></span></a></li>
+                    <li><a href=" "><span class="fa fa-linkedin "></span></a></li>
+                    <li><a href=" "><span class="fa fa-instagram "></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src=" https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

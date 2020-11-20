@@ -1,0 +1,72 @@
+﻿@model OnlineMedicineStore.Data.Medicine
+
+@{
+    ViewData["Title"] = "Medicine Details";
+}
+
+@*<h1>Medicine Details</h1>
+
+<div>
+    <h4>Medicine</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MedicineName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MedicineName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IsPrescriptionRequired)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsPrescriptionRequired)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+*@
+
+<div class="container">
+    <h3 class="display-4 h3 text-center">Medicine details</h3>
+    <div class="card justify-content-center" style="width: 18rem;margin-left:140px;">
+          <img src="/images/@Model.MedicineName .jpg" class="card-img-top" alt="image" style="width:100%;height:15vw;object-fit:cover;">
+          <div class="card-title font-weight-bold text-center"> @Html.DisplayFor(model => model.MedicineName)</div>
+          <ul class="list-group list-group-flush">
+              <li class="list-group-item">@Html.DisplayNameFor(model => model.MedicineName) : @Html.DisplayFor(model => model.MedicineName)</li>
+              <li class="list-group-item">@Html.DisplayNameFor(model => model.Category) : @Html.DisplayFor(model => model.Category)</li>
+              <li class="list-group-item">@Html.DisplayNameFor(model => model.Description) : @Html.DisplayFor(model => model.Description)</li>
+              <li class="list-group-item">@Html.DisplayNameFor(model => model.Price) : @Html.DisplayFor(model => model.Price) Rs.</li>
+              <li class="list-group-item">Prescription Required : @Html.DisplayFor(model => model.IsPrescriptionRequired)</li>
+          </ul>
+          <div class="card-body">
+              <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-link btn-primary" role="button" style="color:white;list-style:none;">Edit</a>
+              <a asp-action="Index" class="btn btn-link btn-outline-info" role="button">Back to List</a>
+          </div>
+    </div>
+</div>
+
+   
+
+    

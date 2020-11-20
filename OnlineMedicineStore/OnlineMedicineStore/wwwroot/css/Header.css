@@ -1,0 +1,105 @@
+﻿
+.image1, .about {
+    background: #D3D3D3;
+}
+
+.header {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding: 80px;
+    text-align: center;
+    background: #D3D3D3;
+    color: gold;
+}
+
+.navi {
+    background: #D3D3D3;
+}
+
+.header h1 {
+    font-size: 5.4vw;
+    color: coral;
+}
+
+.header h2 {
+    font-size: 3.4vw;
+    color: coral;
+}
+
+@media screen and (max-width:500px) {
+
+    .header h1, h2 {
+        float: none;
+        display: block;
+    }
+
+    nav {
+        float: none;
+        display: block;
+    }
+}
+
+/* Style the top navigation bar */
+.navi ul {
+    list-style-type: none;
+    margin-top: -10px;
+    margin-left: -20px;
+    border: 1px solid #e7e7e7;
+    height: 48px;
+    background-color: #4f4e4e;
+    width: 98%;
+}
+
+    .navi ul li {
+        float: left;
+        margin-left: 80px;
+        width: 150px;
+        background-color: #4f4e4e;
+    }
+
+        .navi ul li a {
+            height: 20px;
+            display: block;
+            color: gold;
+            text-align: center;
+            padding: 14px 18px;
+            text-decoration: none;
+            width: 120px;
+            height: 20px;
+            font-size: small;
+            font-family: Verdana, Geneva, sans-serif;
+        }
+
+            .navi ul li a:hover, .dropdown:hover .dropbtn {
+                background-color: #Aab;
+                color: gold;
+            }
+
+.menu1 {
+    display: none;
+    position: absolute;
+    margin-top: -3px;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 0px 30px !important;
+    z-index: 99;
+}
+
+.navi .menu1 a {
+    color: Black;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    width: 250px;
+}
+
+    .navi .menu1 a:hover {
+        background-color: #E5EBF0;
+        color: Black;
+    }
+
+.dropdown:hover .menu1 {
+    display: block;
+    /*box-sizing: border-box; */
+}
+

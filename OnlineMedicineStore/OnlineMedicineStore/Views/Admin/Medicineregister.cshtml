@@ -1,0 +1,78 @@
+﻿@model OnlineMedicineStore.Data.Medicine
+
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Add Medicine";
+}
+<environment include="Development">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://use.fontawesome.com/7b1cae8ae3.js"></script>
+</environment>
+
+<environment exclude="Development">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://use.fontawesome.com/7b1cae8ae3.js"></script>
+</environment>
+<h1 class="h1 text-center">Add Medicine</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4 offset-4">
+
+        <h4>Medicine Information</h4>
+        @* <div class="bg-success">@ViewBag.message</div>*@
+        @if (ViewBag.IsMedicineRegistered == true)
+        {
+            <div class="alert alert-success" role="alert">
+                <p>
+                    You have Registered Successfully !!
+                </p>
+            </div>
+        }
+    <form asp-action="medicineregister" enctype="multipart/form-data" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="MedicineName" class="control-label"></label>
+            <input asp-for="MedicineName" class="form-control" />
+            <span asp-validation-for="MedicineName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="control-label"></label>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Category" class="control-label"></label>
+            <input asp-for="Category" class="form-control" />
+            <span asp-validation-for="Category" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Price" class="control-label"></label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            Photo File<input type="file" class="form-control-file" />
+        </div>
+
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="IsPrescriptionRequired" /> @Html.DisplayNameFor(model => model.IsPrescriptionRequired)
+            </label>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Add Medicine" class="btn btn-primary btn-block" />
+        </div>
+        <div>
+            <a asp-action="Index">Back </a>
+        </div>
+
+
+
+    </form>
+    </div>
+</div>
